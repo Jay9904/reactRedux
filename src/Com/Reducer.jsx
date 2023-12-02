@@ -1,19 +1,12 @@
-import { json } from "react-router-dom";
-
-const input = [{
-    name: "",
-    email: "",
-    number: "",
-    state: "",
-}]
-
-const data = [];
+const initialState = {
+    data: [],
+};
 
 
-const reducer = (state = input, action) => {
+const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'handleChange': return { ...state.input, [action.input.target.name]: action.input.target.value };
-        case 'handleSubmit': return { ...state, data: action.form };
+        case 'addData': return { ...state, data: [...state.data, action.payload] };
+        case 'deleteData': return { ...state, data: [...state.data.slice(0, action.payload), ...state.data.slice(action.payload + 1)] };
         default: return state;
     }
 }
