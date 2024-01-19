@@ -1,36 +1,23 @@
 import './App.css';
-import Home from './Test3/Home';
-import Form from './Com/Form';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Cart from './Test3/Cart';
-import storeCart from './Test3/StoreCart';
 import { Provider } from 'react-redux';
-import mystore from './Com/Store';
-import Main from './Com/Main'
-import Movies from './MovieApi/Movies';
+// import Shop from './TEST/Shop';
+import testStore from './TEST/testStore';
+import Cart from './TEST/Cart';
+import Shop from './TEST/Shop';
 
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Provider store={mystore} >
+        <Provider store={testStore}>
           <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/form" element={<Form />} />
-            <Route path="/form/:item" element={<Form />} />
-          </Routes>
-        </Provider>
-      </BrowserRouter>
-      {/* <BrowserRouter>
-        <Provider store={storeCart}>
-          <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Shop />} />
             <Route path='/cart' element={<Cart />} />
           </Routes>
         </Provider>
-      </BrowserRouter> */}
-      {/* <Movies /> */}
+      </BrowserRouter>
     </>
   );
 }
